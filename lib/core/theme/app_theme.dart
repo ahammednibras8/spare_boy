@@ -11,20 +11,22 @@ class AppTheme {
         primary: AppColors.primary,
         secondary: AppColors.secondary,
         error: AppColors.error,
-        background: AppColors.background,
       ),
       scaffoldBackgroundColor: AppColors.background,
       textTheme: const TextTheme(
         displayLarge: TextStyle(
+          fontFamily: 'Raleway',
           color: AppColors.textPrimary,
           fontSize: 32,
           fontWeight: FontWeight.bold,
         ),
         bodyLarge: TextStyle(
+          fontFamily: 'Raleway',
           color: AppColors.textPrimary,
           fontSize: 16,
         ),
         bodyMedium: TextStyle(
+          fontFamily: 'Raleway',
           color: AppColors.textSecondary,
           fontSize: 14,
         ),
