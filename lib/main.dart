@@ -10,11 +10,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.white,
         body: Center(
-          child: onboardingButton(text: 'Get Started', onPressed: (){}),
+          child:Text('hello world'),
         ),
       ),
     );
