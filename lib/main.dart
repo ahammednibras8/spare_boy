@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:spare_boy/features/common/widgets/buttons.dart';
 
 void main() {
   runApp(const MainApp());
@@ -12,7 +11,6 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.white,
         body: Center(
           child:Text('hello world'),
         ),
