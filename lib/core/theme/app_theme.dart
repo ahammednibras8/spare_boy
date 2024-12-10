@@ -11,7 +11,7 @@ class AppTheme {
         primary: AppColors.primary,
         secondary: AppColors.secondary,
         error: AppColors.error,
-        background: AppColors.background,
+        surface: AppColors.background,
       ),
       scaffoldBackgroundColor: AppColors.background,
       textTheme: const TextTheme(
