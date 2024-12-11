@@ -1,40 +1,54 @@
-
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:spare_boy/core/theme/app_colors.dart';
 
-class OnboardingTextField extends StatelessWidget{
+class OnboardingTextField extends StatelessWidget {
   final String label;
-  final Icon? icon;
-  final FormFieldValidator? validator;
-  const OnboardingTextField({super.key,required this.label, this.validator,this.icon});
+  final IconButton? suffixIcon;
+  final FormFieldValidator validator;
+  final TextInputType? keyBoardType;
+  final bool? obscureText;
+  const OnboardingTextField(
+      {super.key,
+      required this.label,
+      required this.validator,
+      this.keyBoardType,
+      this.suffixIcon,
+      this.obscureText,
+    });
 
   @override
-  Widget build(BuildContext context){
-    return SizedBox(
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.all(5),
       width: 335,
       height: 55,
       child: TextFormField(
-        cursorColor: Color(0xFF1F1F1F),
+        cursorColor: const Color(0xFF1F1F1F),
         cursorWidth: 1,
         cursorHeight: 16,
         decoration: InputDecoration(
           fillColor: const Color(0xFFF2F2F2),
           filled: true,
-          contentPadding: EdgeInsets.only(left: 20,bottom: 25,top: 20),
+          contentPadding:
+              const EdgeInsets.only(left: 20, bottom: 25, top: 20, right: 20),
           border: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(30)
-          ),
+              borderSide: BorderSide.none,
+              borderRadius: BorderRadius.circular(30)),
           hintText: label,
-          hintStyle: const TextStyle(
+          hintStyle: GoogleFonts.poppins(
             color: AppColors.textFormField,
             fontSize: 16,
             fontWeight: FontWeight.normal,
           ),
-          suffixIcon: icon,
-          
+          isDense: true,
+          suffixIcon: suffixIcon,
+          suffixIconConstraints: const BoxConstraints(
+              minHeight: 50, minWidth: 60, maxHeight: 50, maxWidth: 60),
         ),
+        obscureText: obscureText ?? false,
         validator: validator,
+        keyboardType: keyBoardType ?? TextInputType.text,
       ),
     );
   }
