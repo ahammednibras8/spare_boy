@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spare_boy/core/theme/app_theme.dart';
-import 'package:spare_boy/views/onboarding/onboarding_screen.dart';
+import 'package:spare_boy/features/authentication/views/onboarding_screen.dart';
+
 
 void main() {
   runApp(const MainApp());
