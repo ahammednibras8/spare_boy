@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:spare_boy/core/theme/app_colors.dart';
+import 'package:spare_boy/core/constants/app_colors.dart';
+
 
 class AppTheme {
   static ThemeData get lightTheme {
@@ -11,20 +12,22 @@ class AppTheme {
         primary: AppColors.primary,
         secondary: AppColors.secondary,
         error: AppColors.error,
-        surface: AppColors.background,
       ),
       scaffoldBackgroundColor: AppColors.background,
       textTheme: const TextTheme(
         displayLarge: TextStyle(
+          fontFamily: 'Raleway',
           color: AppColors.textPrimary,
           fontSize: 32,
           fontWeight: FontWeight.bold,
         ),
         bodyLarge: TextStyle(
+          fontFamily: 'Raleway',
           color: AppColors.textPrimary,
           fontSize: 16,
         ),
         bodyMedium: TextStyle(
+          fontFamily: 'Raleway',
           color: AppColors.textSecondary,
           fontSize: 14,
         ),
