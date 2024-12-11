@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:spare_boy/core/theme/app_colors.dart';
+import 'package:spare_boy/core/constants/app_colors.dart';
 
 class OnboardingButton extends StatelessWidget {
   final String text;
