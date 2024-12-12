@@ -1,8 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:spare_boy/features/common/widgets/buttons.dart';
+import 'package:spare_boy/features/common/widgets/circle_avatar.dart';
 
 
-class OnboardingScreen extends StatelessWidget {
+class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
+
+  @override
+  State<OnboardingScreen> createState() => _OnboardingScreenState();
+}
+
+class _OnboardingScreenState extends State<OnboardingScreen> {
+
+  @override
+  void initState(){
+    super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown
+    ]);
+
+  }
+
+    @override
+  void dispose() {
+    // Optional: Reset orientation settings when leaving the screen
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight
+    ]);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +43,15 @@ class OnboardingScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Spacer(flex: 2),
+            const Spacer(flex: 6),
+            // this is in common widgets
+            const AvatarCicle(
+              padding: 20,
+              shadowOffsetY: 3,
+              shadowSpreadRadius: 0,
+              image: 'assets/icons/test_shop.png',
+            ),
+            const Spacer(flex: 1,),
             const Text(
               'Spare Boy',
               style: TextStyle(
@@ -23,41 +63,44 @@ class OnboardingScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 18),
-            const Text(
-              'Quik, Reliable, Unstopable',
-              style: TextStyle(
-                fontFamily: 'Nunito Sans',
-                fontSize: 19,
+             Text(
+              'Quick, Reliable,\n\n\n Unstoppable!!',
+              style: GoogleFonts.nunitoSans(
+                fontSize:21,
                 height: 0.57,
-                color: Color(0xff202020),
+                wordSpacing: 2,
+                letterSpacing: 1,
+                fontWeight: FontWeight.w200,
+                color: const Color(0xff202020),
               ),
             ),
             const Spacer(flex: 3),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 40),
-              // child: MyButton(
-              //   title: 'Let\'s get started',
-              // ),
-            ),
-            Padding(
+             Padding(
               padding: const EdgeInsets.only(bottom: 40),
-              child: GestureDetector(
-                onTap: () {},
-                child: const Text(
-                  'Already have an account?',
-                  style: TextStyle(
-                    fontFamily: 'Nunito Sans',
-                    fontSize: 15,
-                    height: 0.57,
-                    color: Color(0xff202020),
-                    decoration: TextDecoration.underline,
-                    decorationColor: Color(0xff004CFF),
-                    decorationStyle: TextDecorationStyle.solid,
-                    decorationThickness: 3,
+              child: OnboardingButton(text: "Let's get started", onPressed: (){}),
+            ),
+            SizedBox(
+              width: 500,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'I already have an account',
+                    style: GoogleFonts.nunitoSans(
+                      fontWeight: FontWeight.w300,
+                      letterSpacing: 0,
+                      wordSpacing: 2,
+                      fontSize: 15,
+                      
+                      color: const Color(0xff202020),
+                    ),
                   ),
-                ),
+                  const SizedBox(width: 20,),
+                  const SmallBlueButton(icon: Icons.arrow_forward_rounded)
+                ],
               ),
-            )
+            ),
+            const Spacer(flex: 2,)
           ],
         ),
       ),

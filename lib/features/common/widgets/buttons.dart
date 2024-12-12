@@ -1,3 +1,6 @@
+import 'dart:developer';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:spare_boy/core/constants/app_colors.dart';
@@ -18,16 +21,16 @@ class OnboardingButton extends StatelessWidget {
       this.minimumSize,
       this.borderRadius,
       this.color,
-      this.fontSize
-    });
+      this.fontSize});
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
       style: TextButton.styleFrom(
-        minimumSize: minimumSize ?? const Size(330, 60),
-        maximumSize: maximumSize ?? const Size(330, 60),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadius ?? 16)),
+        minimumSize: minimumSize ?? const Size(300, 60),
+        maximumSize: maximumSize ?? const Size(320, 60),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(borderRadius ?? 16)),
         backgroundColor: color ?? AppColors.primary,
       ),
       onPressed: onPressed,
@@ -38,6 +41,30 @@ class OnboardingButton extends StatelessWidget {
             fontSize: fontSize ?? 22,
             fontWeight: FontWeight.w200),
       ),
+    );
+  }
+}
+
+class SmallBlueButton extends StatelessWidget {
+  final IconData icon;
+  final VoidCallback? onTap;
+  const SmallBlueButton({super.key, required this.icon, this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+          width: 30,
+          height: 30,
+          decoration: const BoxDecoration(
+            color: AppColors.primary,
+            shape: BoxShape.circle,
+          ),
+          child: Icon(
+            icon,
+            color: Colors.white,
+          )),
     );
   }
 }
