@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spare_boy/views/widgets/my_button.dart';
+
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -35,9 +35,9 @@ class OnboardingScreen extends StatelessWidget {
             const Spacer(flex: 3),
             const Padding(
               padding: EdgeInsets.only(bottom: 40),
-              child: MyButton(
-                title: 'Let\'s get started',
-              ),
+              // child: MyButton(
+              //   title: 'Let\'s get started',
+              // ),
             ),
             Padding(
               padding: const EdgeInsets.only(bottom: 40),
