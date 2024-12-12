@@ -19,8 +19,8 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-  # assets:
-    # - assets/images/
+  assets:
+    - assets/icons/test_shop.png
   
   fonts:
     - family: Raleway
