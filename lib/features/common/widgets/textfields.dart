@@ -8,14 +8,14 @@ class OnboardingTextField extends StatelessWidget {
   final IconButton? suffixIcon;
   final FormFieldValidator validator;
   final TextInputType? keyBoardType;
-  final bool? obscureText;
+  final bool? showPassword;
   const OnboardingTextField(
-      {super.key,
+      {super.key, 
       required this.label,
       required this.validator,
       this.keyBoardType,
       this.suffixIcon,
-      this.obscureText,
+      this.showPassword,
     });
 
   @override
@@ -29,10 +29,10 @@ class OnboardingTextField extends StatelessWidget {
         cursorWidth: 1,
         cursorHeight: 16,
         decoration: InputDecoration(
-          fillColor: const Color(0xFFF2F2F2),
+          fillColor: const Color.fromARGB(230, 242, 242, 242),
           filled: true,
           contentPadding:
-              const EdgeInsets.only(left: 20, bottom: 25, top: 20, right: 20),
+              const EdgeInsets.only(left: 20, bottom: 18, top: 18, right: 20),
           border: OutlineInputBorder(
               borderSide: BorderSide.none,
               borderRadius: BorderRadius.circular(30)),
@@ -47,7 +47,7 @@ class OnboardingTextField extends StatelessWidget {
           suffixIconConstraints: const BoxConstraints(
               minHeight: 50, minWidth: 60, maxHeight: 50, maxWidth: 60),
         ),
-        obscureText: obscureText ?? false,
+        obscureText: showPassword ?? false,
         validator: validator,
         keyboardType: keyBoardType ?? TextInputType.text,
       ),
