@@ -39,7 +39,7 @@ class OnboardingButton extends StatelessWidget {
           maximumSize: maximumSize ?? const Size(330, 60),
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(borderRadius ?? 16)),
-          backgroundColor: color ?? AppColors.primary,
+          backgroundColor: color ?? AppColors.textPrimary,
         ),
         onPressed: onPressed,
         child: Text(
@@ -68,7 +68,7 @@ class SmallBlueButton extends StatelessWidget {
           width: 30,
           height: 30,
           decoration: const BoxDecoration(
-            color: AppColors.primary,
+            color: AppColors.textPrimary,
             shape: BoxShape.circle,
           ),
           child: Icon(
@@ -112,3 +112,4 @@ class CancelButton extends StatelessWidget {
     );
   }
 }
+

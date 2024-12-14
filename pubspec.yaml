@@ -11,6 +11,7 @@ dependencies:
     sdk: flutter
   google_fonts: ^6.1.0
   image_picker: ^1.0.4
+  pinput: ^5.0.0
 
 dev_dependencies:
   flutter_test:
