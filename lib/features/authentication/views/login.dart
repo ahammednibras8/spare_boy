@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:spare_boy/core/constants/app_colors.dart';
+import 'package:spare_boy/features/authentication/views/recoveryMode.dart';
 import 'package:spare_boy/features/authentication/views/signUp.dart';
 import 'package:spare_boy/features/common/widgets/buttons.dart';
 import 'package:spare_boy/features/common/widgets/textfields.dart';
@@ -88,7 +89,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       margin: const EdgeInsets.only(right: 25, top: 5),
                       child: GestureDetector(
                         onTap: () {
-                          // Handle forgot password
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const RecoveryMode(),
+                            ),
+                          );
                         },
                         child: Text(
                           'Forgot Password?',

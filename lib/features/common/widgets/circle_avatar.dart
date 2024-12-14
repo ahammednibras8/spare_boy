@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:spare_boy/core/constants/app_colors.dart';
 
 class AvatarCicle extends StatelessWidget {
-  final double? radius;
+  final double? size;
   final Color? color;
   final Color? shadowColor;
   final double? shadowBlurRadius;
@@ -10,9 +11,10 @@ class AvatarCicle extends StatelessWidget {
   final double? shadowOffsetY;
   final double? padding;
   final String? image;
+  final Widget? child;
   const AvatarCicle({
     super.key,
-    this.radius,
+    this.size,
     this.color,
     this.shadowBlurRadius,
     this.shadowColor,
@@ -21,6 +23,7 @@ class AvatarCicle extends StatelessWidget {
     this.shadowOffsetY,
     this.padding,
     this.image,
+    this.child,
   });
 
   @override
@@ -41,12 +44,12 @@ class AvatarCicle extends StatelessWidget {
         ],
       ),
       child: CircleAvatar(
-        radius: radius ?? 70.0,
+        radius: size ?? 70.0,
         backgroundColor: color ?? Colors.white,
         child: Container(
           margin: EdgeInsetsDirectional.all(padding ?? 10),
           decoration: const ShapeDecoration(shape: CircleBorder()),
-          child: image != null ? Image.asset(image!,fit: BoxFit.contain,) : const SizedBox.shrink(),
+          child: image != null ? Image.asset(image!,fit: BoxFit.contain,color: AppColors.textPrimary,) :  child ?? const SizedBox.shrink(),
         ),
       ),
     );
