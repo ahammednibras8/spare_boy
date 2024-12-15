@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:spare_boy/core/constants/app_colors.dart';
-import 'package:spare_boy/features/authentication/views/recoveryPage.dart';
+import 'package:spare_boy/features/authentication/views/recovery_page.dart';
 import 'package:spare_boy/features/common/widgets/buttons.dart';
 import 'package:spare_boy/features/common/widgets/circle_avatar.dart';
 
@@ -34,7 +34,7 @@ class _RecoveryModeState extends State<RecoveryMode> {
                 child: Icon(
                   Icons.priority_high_rounded,
                   size: 40,
-                  color: AppColors.textPrimary,
+                  color: AppColors.blackPrimary,
                 ),
               ),
             ),
@@ -89,12 +89,12 @@ class _RecoveryModeState extends State<RecoveryMode> {
         height: 45,
         decoration: BoxDecoration(
           color: _selectedOption == option
-              ? AppColors.textPrimary.withOpacity(0.1)
+              ? AppColors.blackPrimary.withOpacity(0.1)
               : Colors.grey[200],
           borderRadius: BorderRadius.circular(50),
         ),
         child: InkWell(
-          hoverColor: AppColors.textPrimary.withOpacity(0.1),
+          hoverColor: AppColors.blackPrimary.withOpacity(0.1),
           borderRadius: BorderRadius.circular(50),
           onTap: () {
             setState(() {
@@ -134,7 +134,7 @@ class _RecoveryModeState extends State<RecoveryMode> {
                           height: 30,
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
-                            color: AppColors.textPrimary,
+                            color: AppColors.blackPrimary,
                           ),
                           child: const Icon(
                             Icons.check,
