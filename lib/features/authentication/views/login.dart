@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:spare_boy/core/constants/app_colors.dart';
-import 'package:spare_boy/features/authentication/views/recoveryMode.dart';
+import 'package:spare_boy/features/authentication/views/recovery_mode.dart';
 import 'package:spare_boy/features/authentication/views/signUp.dart';
 import 'package:spare_boy/features/common/widgets/buttons.dart';
 import 'package:spare_boy/features/common/widgets/textfields.dart';
@@ -54,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(width: 5),
                     const Icon(
                       Icons.favorite,
-                      color: AppColors.textPrimary,
+                      color: AppColors.blackPrimary,
                       size: 20,
                     ),
                   ],
@@ -76,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         icon: Icon(
                           showPassword ? Icons.visibility : Icons.visibility_off,
                         ),
-                        color: AppColors.textPrimary,
+                        color: AppColors.blackPrimary,
                         onPressed: () {
                           setState(() {
                             showPassword = !showPassword;
