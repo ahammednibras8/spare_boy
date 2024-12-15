@@ -9,6 +9,7 @@ class OnboardingTextField extends StatelessWidget {
   final FormFieldValidator validator;
   final TextInputType? keyBoardType;
   final bool? showPassword;
+  final TextEditingController? controller;
   const OnboardingTextField(
       {super.key, 
       required this.label,
@@ -16,6 +17,7 @@ class OnboardingTextField extends StatelessWidget {
       this.keyBoardType,
       this.suffixIcon,
       this.showPassword,
+      this.controller,
     });
 
   @override
@@ -50,6 +52,7 @@ class OnboardingTextField extends StatelessWidget {
         obscureText: showPassword ?? false,
         validator: validator,
         keyboardType: keyBoardType ?? TextInputType.text,
+        controller: controller,
       ),
     );
   }
