@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "3628613254",
+    "project_id": "spare-boy",
+    "storage_bucket": "spare-boy.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:3628613254:android:be99a3871ade6dd6335b07",
+        "android_client_info": {
+          "package_name": "com.spareboy.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbi3bBtGyrQ8MZXroMVT_eYVcLqb1LGw4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:3628613254:android:72fdfc86a03063a1335b07",
+        "android_client_info": {
+          "package_name": "spareboy.com"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbi3bBtGyrQ8MZXroMVT_eYVcLqb1LGw4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
