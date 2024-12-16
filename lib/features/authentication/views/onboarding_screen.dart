@@ -3,10 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:spare_boy/core/constants/app_colors.dart';
 import 'package:spare_boy/features/authentication/views/login.dart';
-// import 'package:spare_boy/features/authentication/views/sign_up.dart';
+import 'package:spare_boy/features/authentication/views/sign_up.dart';
 import 'package:spare_boy/features/common/widgets/buttons.dart';
 import 'package:spare_boy/features/common/widgets/circle_avatar.dart';
-import 'package:spare_boy/features/home/home_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -85,8 +84,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      //TODO: Fix this route after updating home screen
-                      builder: (context) => const HomeScreen(),
+                      builder: (context) => const SignUpScreen(),
                     ),
                   );
                 },
