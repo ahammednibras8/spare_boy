@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:spare_boy/core/constants/app_colors.dart';
 
-
 class OnboardingTextField extends StatelessWidget {
   final String label;
   final IconButton? suffixIcon;
@@ -10,15 +9,15 @@ class OnboardingTextField extends StatelessWidget {
   final TextInputType? keyBoardType;
   final bool? showPassword;
   final TextEditingController? controller;
-  const OnboardingTextField(
-      {super.key, 
-      required this.label,
-      required this.validator,
-      this.keyBoardType,
-      this.suffixIcon,
-      this.showPassword,
-      this.controller,
-    });
+  const OnboardingTextField({
+    super.key,
+    required this.label,
+    required this.validator,
+    this.keyBoardType,
+    this.suffixIcon,
+    this.showPassword,
+    this.controller,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +35,29 @@ class OnboardingTextField extends StatelessWidget {
           contentPadding:
               const EdgeInsets.only(left: 20, bottom: 18, top: 18, right: 20),
           border: OutlineInputBorder(
-              borderSide: BorderSide.none,
-              borderRadius: BorderRadius.circular(30)),
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.circular(30),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+              color: AppColors.blackPrimary,
+              width: 0.2,
+            ),
+            borderRadius: BorderRadius.circular(30),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+              color: AppColors.error,
+            ),
+            borderRadius: BorderRadius.circular(30),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+              color: AppColors.blackPrimary,
+              width: 1.5,
+            ),
+            borderRadius: BorderRadius.circular(30),
+          ),
           hintText: label,
           hintStyle: GoogleFonts.poppins(
             color: AppColors.textFormField,
