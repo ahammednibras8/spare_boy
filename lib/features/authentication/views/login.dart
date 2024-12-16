@@ -21,6 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const MyAppbar(),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: SizedBox(
@@ -64,6 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 25),
               Form(
+                key: _formKey,
                 child: Column(
                   children: [
                     OnboardingTextField(
