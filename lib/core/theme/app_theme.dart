@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:spare_boy/core/theme/app_colors.dart';
+import 'package:spare_boy/core/constants/app_colors.dart';
+
 
 class AppTheme {
   static ThemeData get lightTheme {
