@@ -139,15 +139,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       onPressed: () {},
                       minimumSize: const Size(325, 60),
                     ),
-                    const SizedBox(height: 15),
-                    CancelButton(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                    const SizedBox(height: 15),
-                  ],
-                ),
+                  ),
+                  const SizedBox(height: 5),
+                  OnboardingButton(
+                    text: 'Login',
+                    onPressed: () {},
+                    minimumSize: const Size(325, 60),
+                  ),
+                  const SizedBox(height: 15),
+                ],
               ),
             ],
           ),
