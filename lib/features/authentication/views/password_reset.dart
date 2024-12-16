@@ -131,7 +131,7 @@ class _PasswordResetState extends State<PasswordReset> {
                   ],
                 ),
               ),
-              const SizedBox(height: 170),
+              const SizedBox(height: 160),
               OnboardingButton(
                 text: 'Reset Password',
                 onPressed: () {

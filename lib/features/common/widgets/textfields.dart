@@ -23,8 +23,12 @@ class OnboardingTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(5),
-      width: 335,
-      height: 55,
+      constraints: const BoxConstraints(
+        minHeight: 55,
+        maxHeight: 85,
+        minWidth: 300,
+        maxWidth: 335
+      ),
       child: TextFormField(
         cursorColor: const Color(0xFF1F1F1F),
         cursorWidth: 1,
@@ -42,12 +46,6 @@ class OnboardingTextField extends StatelessWidget {
             borderSide: const BorderSide(
               color: AppColors.blackPrimary,
               width: 0.2,
-            ),
-            borderRadius: BorderRadius.circular(30),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-              color: AppColors.error,
             ),
             borderRadius: BorderRadius.circular(30),
           ),

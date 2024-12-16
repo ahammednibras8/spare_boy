@@ -15,6 +15,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool showPassword = false;
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -62,18 +63,25 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 25),
               Form(
+                key: _formKey,
                 child: Column(
                   children: [
                     OnboardingTextField(
                       label: 'Email',
                       validator: (value) {
-                        return;
+                        if(value == null || value.isEmpty) {
+                          return 'Please enter your email';
+                        }
+                        return null;
                       },
                     ),
                     OnboardingTextField(
                       label: 'Password',
                       validator: (value) {
-                        return;
+                        if(value == null || value.isEmpty) {
+                          return 'Please enter your password';
+                        }
+                        return null;
                       },
                       showPassword: showPassword,
                       suffixIcon: IconButton(
@@ -93,48 +101,31 @@ class _LoginScreenState extends State<LoginScreen> {
                     Container(
                       alignment: Alignment.centerRight,
                       margin: const EdgeInsets.only(right: 25, top: 5),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const RecoveryMode(),
-                            ),
-                          );
-                        },
-                        child: Text(
-                          'Forgot Password?',
-                          style: GoogleFonts.nunitoSans(
-                            color: AppColors.textPrimary,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w300,
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 30),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushReplacement(
+                      child: GestureText(text: 'Forgot password', onTap: (){
+                        Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const SignUpScreen(),
+                            builder: (context) => const RecoveryMode(),
                           ),
                         );
-                      },
-                      child: Text(
-                        'Don\'t have an account?',
-                        style: GoogleFonts.nunitoSans(
-                          color: AppColors.textPrimary,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w300,
-                        ),
-                      ),
+                      }),
                     ),
+                    const SizedBox(height: 30),
+                    GestureText(text: 'Don\'t have an account?', onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SignUpScreen(),
+                        ),
+                      );
+                    }),
                     const SizedBox(height: 5),
                     OnboardingButton(
                       text: 'Login',
-                      onPressed: () {},
+                      onPressed: () {
+                        if(_formKey.currentState!.validate()) {
+                        }
+                      },
                       minimumSize: const Size(325, 60),
                     ),
                     const SizedBox(height: 15),

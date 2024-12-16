@@ -14,18 +14,19 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   bool showPassword = false;
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: SizedBox(
-          height: MediaQuery.of(context).size.height,
+          height: MediaQuery.of(context).size.height ,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              const SizedBox(height: 30),
               Container(
-                margin: const EdgeInsets.only(top: 50, left: 20),
+                margin: const EdgeInsets.only(top: 10, left: 20),
                 child: Text(
                   'Create Account',
                   style: GoogleFonts.raleway(
@@ -54,24 +55,34 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               const SizedBox(height: 30),
               Form(
+                key: _formKey,
                   child: Column(children: [
                 OnboardingTextField(
                   label: 'Username',
-                  validator: (value) {
-                    return;
-                  },
+                      validator: (value) {
+                        if(value == null || value.isEmpty) {
+                          return 'Please enter your username';
+                        }
+                        return null;
+                      },
                 ),
                 OnboardingTextField(
                   label: 'Email',
-                  validator: (value) {
-                    return;
-                  },
+                      validator: (value) {
+                        if(value == null || value.isEmpty) {
+                          return 'Please enter your email';
+                        }
+                        return null;
+                      },
                 ),
                 OnboardingTextField(
                     label: 'Password',
-                    validator: (value) {
-                      return;
-                    },
+                      validator: (value) {
+                        if(value == null || value == '') {
+                          return 'Please enter your password';
+                        }
+                        return null;
+                      },
                     showPassword: showPassword,
                     suffixIcon: IconButton(
                       icon: Icon(showPassword
@@ -98,20 +109,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       color: AppColors.textPrimary,
                       fontSize: 16,
                       fontWeight: FontWeight.w300,
+                      decoration: TextDecoration.underline,
+                      decorationThickness: 1,
                     ),
                   ),
                 ),
                 const SizedBox(height: 5),
                 OnboardingButton(
                   text: 'Sign Up',
-                  onPressed: () {},
+                  onPressed: () {
+                    if(_formKey.currentState!.validate()) {
+                  }},
                   minimumSize: const Size(325, 60),
                 ),
                 const SizedBox(height: 15),
                 CancelButton(onTap: () {
                   Navigator.pop(context);
                 }),
-                const SizedBox(height: 15),
+                const SizedBox(height: 10),
               ]))
             ],
           ),
