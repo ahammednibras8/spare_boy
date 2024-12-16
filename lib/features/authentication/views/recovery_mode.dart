@@ -19,7 +19,9 @@ class _RecoveryModeState extends State<RecoveryMode> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MyAppbar(),
+      appBar: const MyAppbar(
+        isLoggedIn: false,
+      ),
       body: Container(
         width: double.infinity,
         margin: const EdgeInsets.only(left: 20, right: 20),

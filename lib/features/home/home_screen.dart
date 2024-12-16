@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spare_boy/features/common/widgets/my_appbar.dart';
 import 'package:spare_boy/features/home/account_screen.dart';
 import 'package:spare_boy/features/home/cart_screen.dart';
 import 'package:spare_boy/features/home/search_screen.dart';
@@ -30,6 +31,20 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: MyAppbar(
+        isLoggedIn: true,
+        profileImageUrl:
+            'https://media.licdn.com/dms/image/v2/D4D03AQEhkwQsWAXcWA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1718303752091?e=1740009600&v=beta&t=Zc4MRb6el7u6vcyVZkLorbBh2A3wxAIpNq7CqJlE8DM',
+        username: 'Ahammed Nibras',
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.settings,
+            ),
+          )
+        ],
+      ),
       body: _screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
