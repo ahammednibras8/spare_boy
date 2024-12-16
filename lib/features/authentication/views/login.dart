@@ -4,6 +4,7 @@ import 'package:spare_boy/core/constants/app_colors.dart';
 import 'package:spare_boy/features/authentication/views/recovery_mode.dart';
 import 'package:spare_boy/features/authentication/views/sign_up.dart';
 import 'package:spare_boy/features/common/widgets/buttons.dart';
+import 'package:spare_boy/features/common/widgets/my_appbar.dart';
 import 'package:spare_boy/features/common/widgets/textfields.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -63,25 +64,18 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 25),
               Form(
-                key: _formKey,
                 child: Column(
                   children: [
                     OnboardingTextField(
                       label: 'Email',
                       validator: (value) {
-                        if(value == null || value.isEmpty) {
-                          return 'Please enter your email';
-                        }
-                        return null;
+                        return;
                       },
                     ),
                     OnboardingTextField(
                       label: 'Password',
                       validator: (value) {
-                        if(value == null || value.isEmpty) {
-                          return 'Please enter your password';
-                        }
-                        return null;
+                        return;
                       },
                       showPassword: showPassword,
                       suffixIcon: IconButton(
@@ -101,31 +95,48 @@ class _LoginScreenState extends State<LoginScreen> {
                     Container(
                       alignment: Alignment.centerRight,
                       margin: const EdgeInsets.only(right: 25, top: 5),
-                      child: GestureText(text: 'Forgot password', onTap: (){
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const RecoveryMode(),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const RecoveryMode(),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          'Forgot Password?',
+                          style: GoogleFonts.nunitoSans(
+                            color: AppColors.textPrimary,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w300,
                           ),
-                        );
-                      }),
+                        ),
+                      ),
                     ),
                     const SizedBox(height: 30),
-                    GestureText(text: 'Don\'t have an account?', onTap: (){
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const SignUpScreen(),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SignUpScreen(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'Don\'t have an account?',
+                        style: GoogleFonts.nunitoSans(
+                          color: AppColors.textPrimary,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w300,
                         ),
-                      );
-                    }),
+                      ),
+                    ),
                     const SizedBox(height: 5),
                     OnboardingButton(
                       text: 'Login',
-                      onPressed: () {
-                        if(_formKey.currentState!.validate()) {
-                        }
-                      },
+                      onPressed: () {},
                       minimumSize: const Size(325, 60),
                     ),
                     const SizedBox(height: 15),

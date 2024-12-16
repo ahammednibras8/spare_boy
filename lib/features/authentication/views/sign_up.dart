@@ -111,6 +111,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       fontWeight: FontWeight.w300,
                       decoration: TextDecoration.underline,
                       decorationThickness: 1,
+                      decoration: TextDecoration.underline,
                     ),
                   ),
                 ),

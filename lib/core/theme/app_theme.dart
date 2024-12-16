@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spare_boy/core/constants/app_colors.dart';
 
-
 class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
@@ -9,7 +8,7 @@ class AppTheme {
       brightness: Brightness.light,
       primaryColor: AppColors.primary,
       colorScheme: const ColorScheme.light(
-        primary: AppColors.primary,
+        primary: AppColors.blackPrimary,
         secondary: AppColors.secondary,
         error: AppColors.error,
       ),
