@@ -4,6 +4,7 @@ import 'package:spare_boy/core/constants/app_colors.dart';
 import 'package:spare_boy/features/authentication/views/recovery_page.dart';
 import 'package:spare_boy/features/common/widgets/buttons.dart';
 import 'package:spare_boy/features/common/widgets/circle_avatar.dart';
+import 'package:spare_boy/features/common/widgets/my_appbar.dart';
 
 class RecoveryMode extends StatefulWidget {
   const RecoveryMode({super.key});
@@ -18,11 +19,12 @@ class _RecoveryModeState extends State<RecoveryMode> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const MyAppbar(),
       body: Container(
         width: double.infinity,
         margin: const EdgeInsets.only(left: 20, right: 20),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 40),
@@ -66,14 +68,14 @@ class _RecoveryModeState extends State<RecoveryMode> {
             const SizedBox(height: 120),
             OnboardingButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const RecoveryPage()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const RecoveryPage()));
               },
               text: 'Next',
             ),
             const SizedBox(height: 17),
-            CancelButton(onTap: () {
-              Navigator.pop(context);
-            }),
           ],
         ),
       ),
