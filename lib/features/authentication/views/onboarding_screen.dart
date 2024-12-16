@@ -3,10 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:spare_boy/core/constants/app_colors.dart';
 import 'package:spare_boy/features/authentication/views/login.dart';
-import 'package:spare_boy/features/authentication/views/sign_up.dart';
+// import 'package:spare_boy/features/authentication/views/sign_up.dart';
 import 'package:spare_boy/features/common/widgets/buttons.dart';
 import 'package:spare_boy/features/common/widgets/circle_avatar.dart';
-
+import 'package:spare_boy/features/home/home_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -16,18 +16,14 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-
   @override
-  void initState(){
+  void initState() {
     super.initState();
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown
-    ]);
-
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   }
 
-    @override
+  @override
   void dispose() {
     // Optional: Reset orientation settings when leaving the screen
     SystemChrome.setPreferredOrientations([
@@ -55,7 +51,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               shadowSpreadRadius: 0,
               image: 'assets/icons/test_shop.png',
             ),
-            const Spacer(flex: 1,),
+            const Spacer(
+              flex: 1,
+            ),
             const Text(
               'Spare Boy',
               style: TextStyle(
@@ -67,10 +65,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ),
             ),
             const SizedBox(height: 18),
-             Text(
+            Text(
               'Quick, Reliable,\n\n\n Unstoppable!!',
               style: GoogleFonts.nunitoSans(
-                fontSize:21,
+                fontSize: 21,
                 height: 0.57,
                 wordSpacing: 2,
                 letterSpacing: 1,
@@ -79,12 +77,20 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ),
             ),
             const Spacer(flex: 3),
-             Padding(
+            Padding(
               padding: const EdgeInsets.only(bottom: 40),
-              child: OnboardingButton(text: "Let's get started", onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const SignUpScreen()));
-              },
-              minimumSize: const Size(320, 60),
+              child: OnboardingButton(
+                text: "Let's get started",
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      //TODO: Fix this route after updating home screen
+                      builder: (context) => const HomeScreen(),
+                    ),
+                  );
+                },
+                minimumSize: const Size(320, 60),
               ),
             ),
             SizedBox(
@@ -99,18 +105,27 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       letterSpacing: 0,
                       wordSpacing: 2,
                       fontSize: 15,
-                      
                       color: AppColors.textPrimary,
                     ),
                   ),
-                  const SizedBox(width: 20,),
-                  SmallBlueButton(icon: Icons.arrow_forward_rounded,onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
-                  },)
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  SmallBlueButton(
+                    icon: Icons.arrow_forward_rounded,
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginScreen()));
+                    },
+                  )
                 ],
               ),
             ),
-            const Spacer(flex: 2,)
+            const Spacer(
+              flex: 2,
+            )
           ],
         ),
       ),
