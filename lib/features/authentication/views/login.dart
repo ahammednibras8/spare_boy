@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:spare_boy/core/constants/app_colors.dart';
 import 'package:spare_boy/features/authentication/views/recovery_mode.dart';
-import 'package:spare_boy/features/authentication/views/signUp.dart';
+import 'package:spare_boy/features/authentication/views/sign_up.dart';
 import 'package:spare_boy/features/common/widgets/buttons.dart';
 import 'package:spare_boy/features/common/widgets/textfields.dart';
 
@@ -66,15 +66,21 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     OnboardingTextField(
                       label: 'Email',
-                      validator: (value) {},
+                      validator: (value) {
+                        return;
+                      },
                     ),
                     OnboardingTextField(
                       label: 'Password',
-                      validator: (value) {},
+                      validator: (value) {
+                        return;
+                      },
                       showPassword: showPassword,
                       suffixIcon: IconButton(
                         icon: Icon(
-                          showPassword ? Icons.visibility : Icons.visibility_off,
+                          showPassword
+                              ? Icons.visibility
+                              : Icons.visibility_off,
                         ),
                         color: AppColors.blackPrimary,
                         onPressed: () {
