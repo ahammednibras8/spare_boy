@@ -14,25 +14,26 @@ class OnboardingButton extends StatelessWidget {
   final double? paddingHorizontal;
   final double? paddingVertical;
   final FontWeight? fontWeight;
-  const OnboardingButton(
-      {super.key,
-      required this.text,
-      required this.onPressed,
-      this.maximumSize,
-      this.minimumSize,
-      this.borderRadius,
-      this.color,
-      this.textColor,
-      this.fontWeight,
-      this.fontSize,
-      this.paddingHorizontal,
-      this.paddingVertical,
-      });
+  const OnboardingButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    this.maximumSize,
+    this.minimumSize,
+    this.borderRadius,
+    this.color,
+    this.textColor,
+    this.fontWeight,
+    this.fontSize,
+    this.paddingHorizontal,
+    this.paddingVertical,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: paddingHorizontal ?? 10 , vertical: paddingVertical ?? 10),
+      margin: EdgeInsets.symmetric(
+          horizontal: paddingHorizontal ?? 10, vertical: paddingVertical ?? 10),
       child: TextButton(
         style: TextButton.styleFrom(
           minimumSize: minimumSize ?? const Size(280, 60),
@@ -47,8 +48,7 @@ class OnboardingButton extends StatelessWidget {
           style: GoogleFonts.nunitoSans(
               color: textColor ?? AppColors.textSecondary,
               fontSize: fontSize ?? 22,
-              fontWeight: fontWeight ?? FontWeight.w200
-            ),
+              fontWeight: fontWeight ?? FontWeight.w200),
         ),
       ),
     );
@@ -78,7 +78,6 @@ class SmallBlueButton extends StatelessWidget {
     );
   }
 }
-
 
 class CancelButton extends StatelessWidget {
   final VoidCallback onTap;
@@ -113,3 +112,28 @@ class CancelButton extends StatelessWidget {
   }
 }
 
+class GestureText extends StatelessWidget {
+  final String text;
+  final VoidCallback onTap;
+  final TextStyle? textStyle;
+  const GestureText(
+      {super.key, required this.text, required this.onTap, this.textStyle});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Text(
+        text,
+        style: textStyle ??
+            GoogleFonts.nunitoSans(
+              color: AppColors.textPrimary,
+              fontSize: 16,
+              fontWeight: FontWeight.w300,
+              decoration: TextDecoration.underline,
+              decorationThickness: 1,
+            ),
+      ),
+    );
+  }
+}
