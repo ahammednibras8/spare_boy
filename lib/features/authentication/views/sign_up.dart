@@ -98,6 +98,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       color: AppColors.textPrimary,
                       fontSize: 16,
                       fontWeight: FontWeight.w300,
+                      decoration: TextDecoration.underline,
                     ),
                   ),
                 ),
