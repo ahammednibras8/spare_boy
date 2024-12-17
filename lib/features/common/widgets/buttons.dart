@@ -116,8 +116,10 @@ class GestureText extends StatelessWidget {
   final String text;
   final VoidCallback onTap;
   final TextStyle? textStyle;
+  final double? fontSize;
+  final FontWeight? fontWeight;
   const GestureText(
-      {super.key, required this.text, required this.onTap, this.textStyle});
+      {super.key, required this.text, required this.onTap, this.textStyle,this.fontSize,this.fontWeight});
 
   @override
   Widget build(BuildContext context) {
@@ -128,8 +130,8 @@ class GestureText extends StatelessWidget {
         style: textStyle ??
             GoogleFonts.nunitoSans(
               color: AppColors.textPrimary,
-              fontSize: 16,
-              fontWeight: FontWeight.w300,
+              fontSize: fontSize ?? 16,
+              fontWeight: fontWeight ?? FontWeight.w300,
               decoration: TextDecoration.underline,
               decorationThickness: 1,
             ),

@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:spare_boy/core/constants/app_colors.dart';
 import 'package:spare_boy/features/authentication/views/login.dart';
 import 'package:spare_boy/features/common/widgets/buttons.dart';
+import 'package:spare_boy/features/common/widgets/my_appbar.dart';
 import 'package:spare_boy/features/common/widgets/textfields.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -18,12 +19,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const MyAppbar(),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: SizedBox(
-          height: MediaQuery.of(context).size.height,
+          height: MediaQuery.of(context).size.height - kToolbarHeight - 30,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
                 margin: const EdgeInsets.only(top: 10, left: 20),
@@ -123,10 +125,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       minimumSize: const Size(325, 60),
                     ),
                     const SizedBox(height: 15),
-                    CancelButton(onTap: () {
-                      Navigator.pop(context);
-                    }),
-                    const SizedBox(height: 10),
                   ]))
             ],
           ),

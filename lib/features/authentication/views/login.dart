@@ -6,6 +6,7 @@ import 'package:spare_boy/features/authentication/views/sign_up.dart';
 import 'package:spare_boy/features/common/widgets/buttons.dart';
 import 'package:spare_boy/features/common/widgets/my_appbar.dart';
 import 'package:spare_boy/features/common/widgets/textfields.dart';
+import 'package:spare_boy/features/home/views/structure.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -23,11 +24,10 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       appBar: const MyAppbar(),
       body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
         child: SizedBox(
-          height: MediaQuery.of(context).size.height,
+          height: MediaQuery.of(context).size.height - kToolbarHeight - 30,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 margin: const EdgeInsets.only(left: 20),
@@ -95,59 +95,42 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     Container(
-                      alignment: Alignment.centerRight,
-                      margin: const EdgeInsets.only(right: 25, top: 5),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
+                        alignment: Alignment.centerRight,
+                        margin: const EdgeInsets.only(right: 25, top: 5),
+                        child: GestureText(
+                          text: 'Forgot Password?',
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const RecoveryMode(),
+                              ),
+                            );
+                          },
+                          fontSize: 14,
+                        )),
+                    const SizedBox(height: 30),
+                    GestureText(text: 'Don\'t have an account?', onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SignUpScreen(),
+                        ),
+                      );
+                    }),
+                    const SizedBox(height: 5),
+                    OnboardingButton(
+                      text: 'Login',
+                      onPressed: () {
+                        Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const RecoveryMode(),
-                            ),
-                          );
-                        },
-                        child: Text(
-                          'Forgot Password?',
-                          style: GoogleFonts.nunitoSans(
-                            color: AppColors.textPrimary,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w300,
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 30),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SignUpScreen(),
-                          ),
-                        );
+                              builder: (context) => const StructureScreen(),
+                            ));
                       },
-                      child: Text(
-                        'Don\'t have an account?',
-                        style: GoogleFonts.nunitoSans(
-                          color: AppColors.textPrimary,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w300,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 5),
-                    OnboardingButton(
-                      text: 'Login',
-                      onPressed: () {},
                       minimumSize: const Size(325, 60),
                     ),
-                    const SizedBox(height: 5),
-                    OnboardingButton(
-                      text: 'Login',
-                      onPressed: () {},
-                      minimumSize: const Size(325, 60),
-                    ),
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 25),
                   ],
                 ),
               ),
