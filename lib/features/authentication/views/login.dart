@@ -22,7 +22,9 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MyAppbar(),
+      appBar: const MyAppbar(
+        isLoggedIn: false,
+      ),
       body: SingleChildScrollView(
         child: SizedBox(
           height: MediaQuery.of(context).size.height - kToolbarHeight - 30,

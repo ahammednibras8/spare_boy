@@ -27,7 +27,7 @@ class AppTheme {
         ),
         bodyMedium: TextStyle(
           fontFamily: 'Raleway',
-          color: AppColors.textSecondary,
+          color: AppColors.textPrimary,
           fontSize: 14,
         ),
       ),
