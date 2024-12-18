@@ -7,12 +7,8 @@ environment:
   sdk: ^3.5.4
 
 dependencies:
-  carousel_slider: ^5.0.0
   flutter:
     sdk: flutter
-  google_fonts: ^6.1.0
-  image_picker: ^1.0.4
-  pinput: ^5.0.0
 
 dev_dependencies:
   flutter_test:
@@ -21,16 +17,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-
-  assets:
-    - assets/icons/
-    - assets/banners/
-  
-  fonts:
-    - family: Raleway
-      fonts:
-        - asset: assets/fonts/Raleway/Raleway-Bold.ttf
-    
-    - family: Nunito Sans
-      fonts:
-        - asset: assets/fonts/Nunito_Sans/NunitoSans_Light.ttf
