@@ -19,7 +19,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MyAppbar(),
+      appBar: const MyAppbar(isLoggedIn: false),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: SizedBox(
