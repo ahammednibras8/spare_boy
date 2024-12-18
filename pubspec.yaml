@@ -7,6 +7,7 @@ environment:
   sdk: ^3.5.4
 
 dependencies:
+  carousel_slider: ^5.0.0
   flutter:
     sdk: flutter
   google_fonts: ^6.1.0
@@ -23,6 +24,7 @@ flutter:
 
   assets:
     - assets/icons/
+    - assets/banners/
   
   fonts:
     - family: Raleway

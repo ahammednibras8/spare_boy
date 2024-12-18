@@ -58,15 +58,18 @@ class OnboardingButton extends StatelessWidget {
 class SmallBlueButton extends StatelessWidget {
   final IconData icon;
   final VoidCallback? onTap;
-  const SmallBlueButton({super.key, required this.icon, this.onTap});
+  final double? size;
+  final double? width;
+  final double? height;
+  const SmallBlueButton({super.key, required this.icon, this.onTap, this.size,this.width,this.height});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-          width: 30,
-          height: 30,
+          width: width ?? 30,
+          height: height ?? 30,
           decoration: const BoxDecoration(
             color: AppColors.textPrimary,
             shape: BoxShape.circle,
@@ -74,6 +77,7 @@ class SmallBlueButton extends StatelessWidget {
           child: Icon(
             icon,
             color: Colors.white,
+            size: size ?? 23,
           )),
     );
   }
