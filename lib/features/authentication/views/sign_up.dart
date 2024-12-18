@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:spare_boy/core/constants/app_colors.dart';
 import 'package:spare_boy/features/authentication/views/login.dart';
 import 'package:spare_boy/features/common/widgets/buttons.dart';
+import 'package:spare_boy/features/common/widgets/my_appbar.dart';
 import 'package:spare_boy/features/common/widgets/textfields.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -18,12 +19,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const MyAppbar(isLoggedIn: false),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: SizedBox(
-          height: MediaQuery.of(context).size.height ,
+          height: MediaQuery.of(context).size.height - kToolbarHeight - 30,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
                 margin: const EdgeInsets.only(top: 10, left: 20),
@@ -55,79 +57,75 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               const SizedBox(height: 30),
               Form(
-                key: _formKey,
+                  key: _formKey,
                   child: Column(children: [
-                OnboardingTextField(
-                  label: 'Username',
+                    OnboardingTextField(
+                      label: 'Username',
                       validator: (value) {
-                        if(value == null || value.isEmpty) {
+                        if (value == null || value.isEmpty) {
                           return 'Please enter your username';
                         }
                         return null;
                       },
-                ),
-                OnboardingTextField(
-                  label: 'Email',
+                    ),
+                    OnboardingTextField(
+                      label: 'Email',
                       validator: (value) {
-                        if(value == null || value.isEmpty) {
+                        if (value == null || value.isEmpty) {
                           return 'Please enter your email';
                         }
                         return null;
                       },
-                ),
-                OnboardingTextField(
-                    label: 'Password',
-                      validator: (value) {
-                        if(value == null || value == '') {
-                          return 'Please enter your password';
-                        }
-                        return null;
-                      },
-                    showPassword: showPassword,
-                    suffixIcon: IconButton(
-                      icon: Icon(showPassword
-                          ? Icons.visibility
-                          : Icons.visibility_off),
-                      color: AppColors.textPrimary,
-                      onPressed: () {
-                        setState(() {
-                          showPassword = !showPassword;
-                        });
-                      },
-                    )),
-                const SizedBox(height: 15),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LoginScreen()));
-                  },
-                  child: Text(
-                    'Already have an account?',
-                    style: GoogleFonts.nunitoSans(
-                      color: AppColors.textPrimary,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w300,
-                      decoration: TextDecoration.underline,
-                      decorationThickness: 1,
                     ),
-                  ),
-                ),
-                const SizedBox(height: 5),
-                OnboardingButton(
-                  text: 'Sign Up',
-                  onPressed: () {
-                    if(_formKey.currentState!.validate()) {
-                  }},
-                  minimumSize: const Size(325, 60),
-                ),
-                const SizedBox(height: 15),
-                CancelButton(onTap: () {
-                  Navigator.pop(context);
-                }),
-                const SizedBox(height: 10),
-              ]))
+                    OnboardingTextField(
+                        label: 'Password',
+                        validator: (value) {
+                          if (value == null || value == '') {
+                            return 'Please enter your password';
+                          }
+                          return null;
+                        },
+                        showPassword: showPassword,
+                        suffixIcon: IconButton(
+                          icon: Icon(showPassword
+                              ? Icons.visibility
+                              : Icons.visibility_off),
+                          color: AppColors.textPrimary,
+                          onPressed: () {
+                            setState(() {
+                              showPassword = !showPassword;
+                            });
+                          },
+                        )),
+                    const SizedBox(height: 15),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginScreen()));
+                      },
+                      child: Text(
+                        'Already have an account?',
+                        style: GoogleFonts.nunitoSans(
+                          color: AppColors.textPrimary,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w300,
+                          decoration: TextDecoration.underline,
+                          decorationThickness: 1,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 5),
+                    OnboardingButton(
+                      text: 'Sign Up',
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {}
+                      },
+                      minimumSize: const Size(325, 60),
+                    ),
+                    const SizedBox(height: 15),
+                  ]))
             ],
           ),
         ),
