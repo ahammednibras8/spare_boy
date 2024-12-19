@@ -5,18 +5,12 @@ class BannerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context,constraints) {
-        return Container(
-          width: constraints.maxWidth,
-          height: 130,
-          margin: const EdgeInsets.all(10),
-          child: Image.asset(
-            'assets/banners/banner.png',
-            fit: BoxFit.contain,
-          ),
-        );
-      }
+    return Container(
+      margin: const EdgeInsets.all(10),
+      child: Image.asset(
+        'assets/banners/banner.png',
+        fit: BoxFit.contain,
+      ),
     );
   }
 }

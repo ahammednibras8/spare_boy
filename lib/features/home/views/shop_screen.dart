@@ -20,6 +20,10 @@ class _ShopScreenState extends State<ShopScreen> {
     return 'assets/icons/test_shop.png';
   });
 
+  final List<String> banner = List.generate(4, (index) {
+    return 'assets/banners/banner.png';
+  });
+
   @override
   void initState() {
     super.initState();
@@ -39,9 +43,29 @@ class _ShopScreenState extends State<ShopScreen> {
         return CustomScrollView(
             physics: const ClampingScrollPhysics(),
             slivers: [
+              //carousel
               SliverToBoxAdapter(
-                child: CarouselSlider(items: List.generate(3, (index) => const BannerWidget()), options: CarouselOptions(autoPlay: false)),
+                child: CarouselSlider(
+                  items: banner
+                      .map((item) => const BannerWidget())
+                      .toList(),
+                  options: CarouselOptions(
+                    height: 180,
+                    aspectRatio: 16 / 9,
+                    viewportFraction: 1,
+                    initialPage: 0,
+                    enableInfiniteScroll: true,
+                    reverse: false,
+                    autoPlay: false,
+                    autoPlayInterval: const Duration(seconds: 3),
+                    autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                    enlargeCenterPage: true,
+                    scrollDirection: Axis.horizontal,
+                  ),
                 ),
+                ),
+                //category title
               SliverToBoxAdapter(
                 child: titleBuilder('Categories', isSeeAllVisible: true),
               ),
